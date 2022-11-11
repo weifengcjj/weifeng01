@@ -5,12 +5,52 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
+<<<<<<< HEAD
     <artifactId>ActionForm10_25</artifactId>
     <version>1.0-SNAPSHOT</version>
+=======
+    <artifactId>MailMQ</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <!--rabbitmq java 客户端-->
+        <dependency>
+            <groupId>com.rabbitmq</groupId>
+            <artifactId>amqp-client</artifactId>
+            <version>5.7.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.47</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.5.0-b01</version>
+        </dependency>
+
+        <dependency>
+            <groupId>quartz</groupId>
+            <artifactId>quartz</artifactId>
+            <version>1.5.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+    </dependencies>
+
+>>>>>>> origin/master
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
+<<<<<<< HEAD
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
         <dependency>
@@ -106,4 +146,7 @@
             </plugin>
         </plugins>
     </build>
+=======
+
+>>>>>>> origin/master
 </project>
