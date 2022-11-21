@@ -11,6 +11,26 @@
         <servlet-name>ActionServlet</servlet-name>
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>goto</servlet-name>
+        <jsp-file>/WEB-INF/showtest.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>goto</servlet-name>
+        <url-pattern>/test</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>goto1</servlet-name>
+        <jsp-file>/WEB-INF/fabu.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>goto1</servlet-name>
+        <url-pattern>/test1</url-pattern>
+    </servlet-mapping>
+
+
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>

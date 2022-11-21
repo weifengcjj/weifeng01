@@ -9,6 +9,4 @@
        ">
 
     <context:component-scan base-package="Com.cjj.web"/>
-
-
 </beans>

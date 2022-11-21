@@ -31,9 +31,9 @@
             max-width:500px;
             height: 400px;
             position: absolute;
-            top: 50%;
+            top: 20%;
 
-            margin-top: -200px;
+            margin-top: -150px;
             /*设置负值，为要定位子盒子的一半高度*/
 
         }
@@ -53,7 +53,7 @@
             padding-top: 25px;
         }
         .login-content {
-            height: 300px;
+            height: 650px;
             width: 100%;
             max-width:500px;
             background-color: rgba(255, 250, 2550, .6);
@@ -85,13 +85,52 @@
 
         .link p {
             line-height: 20px;
-            margin-top: 30px;
+            margin-top: 20px;
         }
         .btn-sm {
             padding: 8px 24px !important;
             font-size: 16px !important;
         }
     </style>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+
+        $(function(){
+            $("#btn").click(function(){
+                if($(".email").val()){
+                    $.ajax({
+                        type:"POST",
+                        url :"email.action?random"+Math.random(),
+                        data:{
+                            email:$(".email").val(),
+                        },
+                        success:function(data){
+                            alert("success");
+                        },
+                    })
+                }else{
+                    alert("fail");
+                    $("#notice").html("请填写邮箱");
+                    setTimeout(function(){
+                        $("#notice").hide();
+                    },1000);
+                }
+            });
+
+            //  判断用户是否可以注册
+            $("#submit").click(function(){
+                if($(".email").val()){
+                    $("#RegistForm").submit();
+                }else{   //  如果没有值
+                    $("#notice").html("请完整信息");
+                    setTimeout(function(){
+                        $("#notice").hide();
+                    },1000);
+                }
+            });
+        });
+
+    </script>
 
 </head>
 
@@ -103,7 +142,7 @@
         </div>
         <div class="login-content ">
             <div class="form">
-                <form action="register.do" method="post">
+                <form id="RegistForm" action="register.do" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <div class="col-xs-12  ">
                             <div class="input-group">
@@ -120,14 +159,67 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="col-xs-12  ">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                <input type="text" id="moblie" name="moblie" class="form-control" placeholder="手机号码">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-12  ">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                    <input type="email" id="email" name="email" class="email" placeholder="邮箱">
+                                <p id="btn" class="btn">发送邮箱验证码</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12  ">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                <input type="text" name="code" class="code" placeholder="请输入验证码"/>
+                                <span id="notice" class="hide">请先完成邮箱验证</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-xs-12  ">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                <input type="file" name="image" placeholder="选择头像"/>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12  ">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                性别：   <input type="radio" name="sex" value="女">女
+                                <input type="radio" name="sex" value="男">男
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
                     <div class="form-group form-actions">
                         <div class="col-xs-4 col-xs-offset-4 ">
-                            <button type="submit" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-off"></span> 注册</button>
+                            <button id="submit" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-off"></span> 注册</button>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-6 link">
-                            <p class="text-center remove-margin"><small>忘记密码？</small> <a href="javascript:void(0)" ><small>找回</small></a>
+                            <p class="text-center remove-margin"><small>有账号了？</small> <a href="login.jsp" ><small>去登录</small></a>
                             </p>
                         </div>
 <%--                        <div class="col-xs-6 link">--%>
@@ -140,6 +232,7 @@
         </div>
     </div>
 </div>
+
 
 </body>
 
